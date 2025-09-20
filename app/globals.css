@@ -1,0 +1,178 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens for Enterpret dark theme design */
+  --background: #1e293b; /* Dark Slate Blue */
+  --foreground: #ffffff; /* White */
+  --card: #475569; /* Deep Gray */
+  --card-foreground: #f1f5f9; /* Light Gray */
+  --popover: #ffffff; /* White */
+  --popover-foreground: #1e293b; /* Dark Slate Blue */
+  --primary: #ec4899; /* Bright Pink */
+  --primary-foreground: #ffffff; /* White */
+  --secondary: #f1f5f9; /* Light Gray */
+  --secondary-foreground: #1e293b; /* Dark Slate Blue */
+  --muted: #374151; /* Dark Gray */
+  --muted-foreground: #f1f5f9; /* Light Gray */
+  --accent: #ec4899; /* Bright Pink */
+  --accent-foreground: #ffffff; /* White */
+  --destructive: #be123c; /* Rose */
+  --destructive-foreground: #ffffff; /* White */
+  --border: #475569; /* Deep Gray */
+  --input: #ffffff; /* White */
+  --ring: #ec4899; /* Bright Pink */
+  --chart-1: #f97316; /* Orange */
+  --chart-2: #d97706; /* Amber */
+  --chart-3: #4b5563; /* Gray */
+  --chart-4: #f1f5f9; /* Light Gray */
+  --chart-5: #1e293b; /* Dark Slate Blue */
+  --radius: 0.5rem; /* Rounded Corners */
+  --sidebar: #1e293b; /* Dark Slate Blue */
+  --sidebar-foreground: #ffffff; /* White */
+  --sidebar-primary: #475569; /* Deep Gray */
+  --sidebar-primary-foreground: #ffffff; /* White */
+  --sidebar-accent: #ec4899; /* Bright Pink */
+  --sidebar-accent-foreground: #ffffff; /* White */
+  --sidebar-border: #475569; /* Deep Gray */
+  --sidebar-ring: #ec4899; /* Bright Pink */
+}
+
+.dark {
+  --background: #0f172a; /* Even darker for dark mode */
+  --foreground: #ffffff;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #ffffff;
+  --primary: #ec4899;
+  --primary-foreground: #ffffff;
+  --secondary: #334155;
+  --secondary-foreground: #ffffff;
+  --muted: #334155;
+  --muted-foreground: #cbd5e1;
+  --accent: #ec4899;
+  --accent-foreground: #ffffff;
+  --destructive: #be123c;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #334155;
+  --ring: #ec4899;
+  --chart-1: #f97316;
+  --chart-2: #d97706;
+  --chart-3: #64748b;
+  --chart-4: #f1f5f9;
+  --chart-5: #1e293b;
+  --sidebar: #0f172a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #1e293b;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ec4899;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #334155;
+  --sidebar-ring: #ec4899;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+  html {
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom breakpoint for extra small screens */
+  @media (min-width: 475px) {
+    .xs\:inline {
+      display: inline;
+    }
+    .xs\:hidden {
+      display: none;
+    }
+    .xs\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .xs\:min-w-\[140px\] {
+      min-width: 140px;
+    }
+    .xs\:text-3xl {
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
+  }
+
+  /* Added mobile-specific text overflow handling */
+  @media (max-width: 374px) {
+    .text-balance {
+      text-wrap: balance;
+      word-break: break-word;
+    }
+    .text-pretty {
+      text-wrap: pretty;
+      word-break: break-word;
+    }
+  }
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
